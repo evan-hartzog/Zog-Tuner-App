@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZogTunerApp</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <main class="app-shell">
+        <section class="tuner-card" id="tuner-card">
+            <div class="top-bar">
+                <div>
+                    <p class="eyebrow">Guitar tuner</p>
+                    <h1>ZogTunerApp</h1>
+                </div>
+
+                <div class="button-row">
+                    <button id="start-button">Start tuner</button>
+                    <button id="stop-button" disabled>Stop tuner</button>
+                </div>
+            </div>
+
+            <p id="status" class="status-pill">Status: ready</p>
+
+            <section class="note-panel">
+                <p class="label">Detected note</p>
+                <div id="note" class="note-display">--</div>
+                <p id="target-note" class="target-note">Target string: --</p>
+            </section>
+
+            <section class="meter-panel">
+                <div class="meter-labels">
+                    <span>-50</span>
+                    <span>-25</span>
+                    <span>0</span>
+                    <span>+25</span>
+                    <span>+50</span>
+                </div>
+
+                <div class="meter-track">
+                    <div class="meter-zone meter-zone-flat"></div>
+                    <div class="meter-zone meter-zone-center"></div>
+                    <div class="meter-zone meter-zone-sharp"></div>
+                    <div class="meter-center-line"></div>
+                    <div id="needle" class="needle"></div>
+                </div>
+
+                <p id="guidance" class="guidance">Play one string clearly.</p>
+            </section>
+
+            <section class="readout-grid">
+                <div class="readout-box">
+                    <p class="label">Frequency</p>
+                    <p id="frequency" class="readout-value">-- Hz</p>
+                </div>
+
+                <div class="readout-box">
+                    <p class="label">Cents</p>
+                    <p id="cents" class="readout-value">--</p>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/tuner.js') }}"></script>
+</body>
+</html>
